@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #f3ba1a;
+  --primaryHover: #e6a93f;
+  --text: #262626; /* text-black */
+  --brown: #935d25;
+  --blue: #1e3a8a;
+  --background: #fcfcfc; /* grey-background */
+  --muted: #777777; /* grey-text;; */
+}

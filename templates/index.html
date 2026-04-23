@@ -1,0 +1,11 @@
+{% extends "layout.html" %} {% block content %}
+<h1 style="color: #1e3a8a">Welcome to the Homepage</h1>
+<p style="color: #f3ba1a">
+  This unique content replaces the placeholder in the parent.
+</p>
+<img src="{{ url_for('static', filename='speed.png') }}" />
+<h1 class="text-red-50">Welcome to the Homepage</h1>
+<p style="color: #f3ba1a">
+  This unique content replaces the placeholder in the parent.
+</p>
+{% endblock %}

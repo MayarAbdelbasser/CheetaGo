@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='dist/output.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    {% if title %}
+    <title>{{title}} | CheetaGo</title>
+    {% else %}
+    <title>CheetaGo</title>
+    {% endif %}
+  </head>
+  <body
+    class="font-sans h-screen bg-[url('/static/images/stacked-waves-haikei.svg')] bg-no-repeat bg-cover flex justify-center items-center text-(--text)"
+  >
+    <div
+      class="bg-(--background) p-8 lg:p-10 rounded-lg space-y-4 min-w-xs lg:w-md"
+    >
+      <h2 class="text-xl font-semibold lg:text-2xl lg:font-bold">
+        Sign In to CheetaGo
+      </h2>
+      <!-- form to manually sign in -->
+      <form class="flex flex-col gap-y-3">
+        <!-- email input -->
+        <div class="flex flex-col gap-y-1">
+          <label for="email" class="font-semibold">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            class="border rounded-sm p-2"
+          />
+        </div>
+        <!-- password input -->
+        <div class="flex flex-col gap-y-1 relative">
+          <label for="password" class="font-semibold">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="border rounded-sm p-2"
+          />
+          <!-- show password icon -->
+          <div id="toggle-password">
+            <i
+              data-lucide="eye"
+              class="text-(--text) absolute right-4 top-9.25 w-5 lg:w-5.5 cursor-pointer hover:text-(--primary) transition duration-300"
+              id="icon-eye"
+            ></i>
+          </div>
+        </div>
+        <!-- forgot password button -->
+        <!-- added display block to make the button take all width -->
+        <button
+          type="button"
+          class="text-(--primaryHover) font-semibold text-xs lg:text-[14px] cursor-pointer self-end d-block hover:text-(--primary) transition duration-300"
+        >
+          Forgot password?
+        </button>
+        <button
+          type="submit"
+          class="bg-(--primaryHover) py-2 rounded-sm font-semibold cursor-pointer hover:bg-(--primary) transition duration-300 mt-3"
+        >
+          Sign in
+        </button>
+      </form>
+      <!-- or splitter -->
+      <div class="flex items-center">
+        <span class="flex-1 bg-(--muted) h-px mt-1"></span>
+        <span class="text-(--muted) font-semibold px-2">or</span>
+        <span class="flex-1 bg-(--muted) h-px mt-1"></span>
+      </div>
+      <!-- sing in with google -->
+      <div
+        class="border flex items-center justify-center gap-3 border-gray-300 rounded-sm p-2 cursor-pointer hover:shadow transition duration-300"
+      >
+        <img
+          src="https://cdn.shipstation.com/auth0/shipstation/public/images/google.svg"
+          alt="google logo"
+          class="h-5"
+        />
+        <span class="font-semibold text-[15px] lg:text-[16px]"
+          >Sign in with Google</span
+        >
+      </div>
+    </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script
+      src="{{ url_for('static', filename='js/script.js') }}"
+      type="module"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/auth.js') }}"
+      type="module"
+    ></script>
+  </body>
+</html>

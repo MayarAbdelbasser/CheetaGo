@@ -1,0 +1,2 @@
+h2 = [text-xl font-semibold lg:text-2xl lg:font-bold]
+input = ["border rounded-sm"]
