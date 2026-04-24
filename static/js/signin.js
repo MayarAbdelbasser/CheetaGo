@@ -1,17 +1,33 @@
-const eyeIconContainer = document.getElementById("toggle-password");
-const passwordInput = document.getElementById("password");
-const emailInput = document.getElementById("email");
-const emailErr = document.getElementById("email-err-msg");
+lucide.createIcons();
 
-// show password function
-eyeIconContainer.addEventListener("click", () => {
-  const isPasswordVisible = passwordInput.type === "password";
-  passwordInput.type = isPasswordVisible ? "text" : "password";
-  eyeIconContainer.innerHTML = isPasswordVisible ? eyeOffSVG : eyeSVG;
-});
+document.addEventListener("DOMContentLoaded", () => {
+  // toggle eye icons to show password
+  setupPasswordToggle("toggle-password", "password", "icon-eye");
 
-// show not valid email while typing
-emailInput.addEventListener("input", () => {
-  const isEmailValid = validateEmail(emailInput.value);
-  toggleError(emailInput, emailErr, isEmailValid);
+  const signupRules = [
+    {
+      inputId: "email",
+      msgId: "email-msg",
+      label: "Email",
+      type: "email",
+    },
+    {
+      inputId: "password",
+      msgId: "password-msg",
+      label: "Password",
+      type: "password",
+    },
+  ];
+  // attach the function to each input
+  signupRules.forEach(attachLiveValidation);
+
+  // validateForm function will return true or false because the every method
+  document.querySelector("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const isValid = validateForm(signupRules);
+
+    if (isValid) {
+      console.log("All good — submit!");
+    }
+  });
 });

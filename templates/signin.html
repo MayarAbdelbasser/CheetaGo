@@ -29,7 +29,7 @@
       <!-- form to manually sign in -->
       <form class="flex flex-col">
         <!-- email input -->
-        <div class="flex flex-col gap-y-1 min-h-[93.6px]">
+        <div class="flex flex-col gap-y-1 min-h-[93.850px]">
           <label for="email" class="font-semibold">Email</label>
           <input
             type="text"
@@ -37,18 +37,16 @@
             id="email"
             class="border rounded-sm p-2"
           />
-          <p id="email-err-msg" class="text-red-500 text-[13.5px] hidden">
-            Please enter a valid email.
-          </p>
+          <p id="email-msg" class="text-red-500 text-[13.5px] hidden"></p>
         </div>
         <!-- password input -->
-        <div class="flex flex-col gap-y-1 relative min-h-[93.6px]">
+        <div class="flex flex-col relative min-h-[93.850px]">
           <label for="password" class="font-semibold">Password</label>
           <input
             type="password"
             name="password"
             id="password"
-            class="border rounded-sm p-2"
+            class="border rounded-sm p-2 mt-1"
           />
           <!-- show password icon -->
           <div id="toggle-password">
@@ -58,6 +56,10 @@
               id="icon-eye"
             ></i>
           </div>
+          <p
+            class="text-red-500 text-[13.5px] hidden mt-1"
+            id="password-msg"
+          ></p>
         </div>
         <!-- forgot password button -->
         <!-- added display block to make the button take all width -->
@@ -104,7 +106,7 @@
     </div>
 
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/sign.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/validator.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/signin.js') }}"></script>
   </body>
 </html>
