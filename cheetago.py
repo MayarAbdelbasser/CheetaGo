@@ -10,5 +10,10 @@ def homePage():
 
 
 @app.route("/signin")
-def signin():
+def signinPage():
     return render_template("signin.html", title="Signin")
+
+
+@app.route("/signup")
+def signupPage():
+    return render_template("signup.html", title="Signup")
