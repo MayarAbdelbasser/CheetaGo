@@ -1,5 +1,3 @@
-lucide.createIcons();
-
 document.addEventListener("DOMContentLoaded", () => {
   // toggle eye icons to show password
   setupPasswordToggle("toggle-password", "password", "icon-eye");
@@ -42,16 +40,35 @@ document.addEventListener("DOMContentLoaded", () => {
       getRef: () => document.getElementById("password").value.trim(),
     },
   ];
+
+  const handleSignup = async (formData) => {
+    try {
+      const data = await apiRequest("/signup", "POST", {
+        full_name: `${formData.first_name} ${formData.last_name}`.trim(),
+        email: formData.email,
+        password: formData.password,
+      });
+      console.log(data.message);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   // attach the function to each input
   signupRules.forEach(attachLiveValidation);
 
   // validateForm function will return true or false because the every method
-  document.querySelector("form").addEventListener("submit", (e) => {
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    const formData = Object.fromEntries(new FormData(e.target));
     const isValid = validateForm(signupRules);
 
     if (isValid) {
-      console.log("All good — submit!");
+      handleSignup(formData);
     }
   });
 });
+
+lucide.createIcons();

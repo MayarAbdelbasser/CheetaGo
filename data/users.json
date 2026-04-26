@@ -26,6 +26,24 @@
       "reset_token": null,
       "reset_token_expiry": null,
       "created_at": "2026-04-26T08:31:04.633035+00:00"
+    },
+    {
+      "id": "dbb69c2a-f368-4658-af3b-c6a51bdb8a8d",
+      "full_name": "Mai Ahmed",
+      "email": "mai.ahmed@example.com",
+      "password": "$2b$12$IWsZrkyPd9sgoAyNgYzEbOXlGF4Z7Mzh5SIsEtX1irLiwymrCBX.i",
+      "reset_token": null,
+      "reset_token_expiry": null,
+      "created_at": "2026-04-26T10:27:36.804005+00:00"
+    },
+    {
+      "id": "aa627179-6fc3-4dd5-b82b-f1b830578635",
+      "full_name": "walaa saad",
+      "email": "walaa.saad@example.com",
+      "password": "$2b$12$/VEd0ZPd3k5A0VcMMRKlg.hP0fJWEWb32qUdPJNY.BEWqboJioBki",
+      "reset_token": null,
+      "reset_token_expiry": null,
+      "created_at": "2026-04-26T10:29:44.946638+00:00"
     }
   ]
 }

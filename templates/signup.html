@@ -42,7 +42,7 @@
               type="text"
               id="first-name"
               class="border rounded-sm p-2"
-              name="first-name"
+              name="first_name"
             />
             <p class="text-red-500 text-[13.5px] hidden" id="fname-msg"></p>
           </div>
@@ -54,7 +54,7 @@
               type="text"
               id="last-name"
               class="border rounded-sm p-2"
-              name="last-name"
+              name="last_name"
             />
             <p class="text-red-500 text-[13.5px] hidden" id="lname-msg">
               Last name is not valid.
@@ -65,7 +65,12 @@
         <!-- email -->
         <div class="flex flex-col gap-y-1 min-h-[93.6px]">
           <label for="email" class="font-semibold">Email</label>
-          <input type="text" id="email" class="border rounded-sm p-2" />
+          <input
+            type="text"
+            id="email"
+            class="border rounded-sm p-2"
+            name="email"
+          />
           <p class="text-red-500 text-[13.5px] hidden" id="email-msg"></p>
         </div>
 
@@ -76,6 +81,7 @@
             type="password"
             id="password"
             class="border rounded-sm p-2 mt-1"
+            name="password"
           />
           <!-- show password icon -->
           <span id="toggle-password" class="mt-1">
@@ -99,13 +105,14 @@
             class="border rounded-sm p-2 mt-1"
           />
           <!-- show password icon -->
-          <span id="toggle-confirm-password" class="mt-1">
+          <div id="toggle-confirm-password" class="mt-1">
             <i
               data-lucide="eye"
               class="text-(--text) absolute right-4 top-9.25 w-5 lg:w-5.5 cursor-pointer hover:text-(--primary) transition duration-300"
               id="icon-eye-confirm"
             ></i>
-          </span>
+          </div>
+
           <p
             class="text-red-500 text-[13.5px] hidden"
             id="confirm-password-msg"
@@ -150,8 +157,8 @@
     </div>
 
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{{ url_for('static', filename='js/api.js') }}"></script>
     <script src="{{ url_for('static', filename='js/validator.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
     <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
   </body>
 </html>

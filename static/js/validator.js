@@ -111,15 +111,20 @@ function setupPasswordToggle(toggleId, inputId, iconId) {
   const toggle = document.getElementById(toggleId);
   const inputEl = document.getElementById(inputId);
   const iconEl = document.getElementById(iconId);
-  if (!toggle || !inputEl) return;
+  if (!toggle || !inputEl || !iconEl) return;
 
   toggle.addEventListener("click", () => {
     const isPassword = inputEl.type === "password";
     inputEl.type = isPassword ? "text" : "password";
-    if (iconEl) {
-      iconEl.setAttribute("data-lucide", isPassword ? "eye-off" : "eye");
-      // rerender the Lucide icon if the library is present
-      if (window.lucide) window.lucide.createIcons();
+
+    if (isPassword) {
+      // eye-off
+      iconEl.innerHTML = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="eye-off" aria-hidden="true" class="lucide lucide-eye-off text-(--text) absolute right-4 top-9.25 w-5 lg:w-5.5 cursor-pointer hover:text-(--primary) transition duration-300" id="icon-eye-confirm"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg>`;
+    } else {
+      // eye
+      iconEl.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="eye" aria-hidden="true" class="lucide lucide-eye text-(--text) absolute right-4 top-9.25 w-5 lg:w-5.5 cursor-pointer hover:text-(--primary) transition duration-300" id="icon-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
     }
   });
 }

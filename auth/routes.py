@@ -33,13 +33,13 @@ def signup():
 
     return (
         jsonify(
-            {"message": "User added successfully"},
             {
+                "message": "User added successfully",
                 "user": {
                     "id": user["id"],
                     "full_name": user["full_name"],
                     "email": user["email"],
-                }
+                },
             },
         ),
         201,
