@@ -17,3 +17,8 @@ def signinPage():
 @app.route("/signup")
 def signupPage():
     return render_template("signup.html", title="Signup")
+
+
+@app.route("/forgotPassword")
+def forgotPasswordPage():
+    return render_template("forgotPassword.html", title="Forgot password")

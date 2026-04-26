@@ -11,6 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/cheeta.png') }}"
+    />
     {% if title %}
     <title>{{title}} | CheetaGo</title>
     {% else %}
@@ -63,15 +68,15 @@
         </div>
         <!-- forgot password button -->
         <!-- added display block to make the button take all width -->
-        <button
-          type="button"
-          class="text-(--primaryHover) font-semibold text-xs lg:text-[14px] cursor-pointer self-end d-block hover:text-(--primary) transition duration-300"
+        <a
+          class="text-(--primary) font-semibold text-xs lg:text-[14px] cursor-pointer self-end d-block hover:text-(--primaryHover) transition duration-300"
+          href="http://127.0.0.1:5000/forgotPassword"
         >
           Forgot password?
-        </button>
+        </a>
         <button
           type="submit"
-          class="bg-(--primaryHover) py-2 rounded-sm font-semibold cursor-pointer hover:bg-(--primary) transition duration-300 mt-3"
+          class="bg-(--primary) py-2 rounded-sm font-semibold cursor-pointer hover:bg-(--primaryHover) transition duration-300 mt-3"
         >
           Sign in
         </button>
@@ -79,7 +84,7 @@
           Don't have an account?
           <a
             href="http://127.0.0.1:5000/signup"
-            class="text-(--primaryHover) hover:text(--primary) transition duration-300"
+            class="text-(--primary) hover:text-(--primaryHover) transition duration-300"
             >Sign up</a
           >
         </p>
@@ -92,7 +97,7 @@
       </div>
       <!-- sing in with google -->
       <div
-        class="border flex items-center justify-center gap-3 border-gray-300 rounded-sm p-2 cursor-pointer hover:shadow transition duration-300"
+        class="border flex items-center justify-center gap-3 border-gray-300 rounded-sm p-2 cursor-pointer hover:shadow-md transition duration-300"
       >
         <img
           src="https://cdn.shipstation.com/auth0/shipstation/public/images/google.svg"
