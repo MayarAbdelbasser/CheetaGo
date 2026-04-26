@@ -11,7 +11,7 @@ const messages = {
   required: (label) => `${label} is required.`,
   name: (label) => `${label} must be 2-30 letters.`,
   email: () => "Please enter a valid email address.",
-  password: () => "Password must contain at least 8 letters",
+  password: () => "Password must contain at least 8 characters",
   confirmPassword: () => "Passwords do not match.",
   phone: () => "Please enter a valid phone number.",
 };

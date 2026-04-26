@@ -1,6 +1,19 @@
 from flask import Flask, render_template, url_for
+from auth.routes import auth_bp
+
+# to generate secret keys
+import secrets
+
+# to try the api in external source
+from flask_cors import CORS
 
 app = Flask(__name__)
+# generate secret key with secrets module
+app.secret_key = secrets.token_urlsafe(32)
+
+app.register_blueprint(auth_bp)
+
+CORS(app)
 
 
 @app.route("/")

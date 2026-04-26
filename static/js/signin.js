@@ -18,16 +18,32 @@ document.addEventListener("DOMContentLoaded", () => {
       type: "password",
     },
   ];
+
+  const handleSignin = async (formData) => {
+    try {
+      const data = await apiRequest("/signin", "POST", {
+        email: formData.email,
+        password: formData.password,
+      });
+      console.log(data.message);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   // attach the function to each input
   signupRules.forEach(attachLiveValidation);
 
   // validateForm function will return true or false because the every method
-  document.querySelector("form").addEventListener("submit", (e) => {
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    const formData = Object.fromEntries(new FormData(e.target));
     const isValid = validateForm(signupRules);
 
     if (isValid) {
-      console.log("All good — submit!");
+      handleSignin(formData);
     }
   });
 });

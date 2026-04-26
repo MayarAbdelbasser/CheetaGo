@@ -1,12 +1,23 @@
 # Node
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Env
+# Virtual Environments
+venv/
+env/
+.env/
+
+# Environment variables
 .env
+.env.*
 
 # Build
 dist/
@@ -14,3 +25,7 @@ build/
 
 # Logs
 *.log
+
+# OS files
+.DS_Store
+Thumbs.db

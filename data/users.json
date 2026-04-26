@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "22a98dbd-240f-4341-80cf-476185bf18ba",
+      "full_name": "John Doe",
+      "email": "john.doe@example.com",
+      "password": "$2b$12$9cmWXeGSy18jCOHTEYqRKukctAQCa1l0GxSr7Rk.0T./Com5G8SIq",
+      "reset_token": null,
+      "reset_token_expiry": null,
+      "created_at": "2026-04-26T08:18:54.459221+00:00"
+    },
+    {
+      "id": "5bb221ba-f510-4b59-bf7e-4aed8160a8ed",
+      "full_name": "Mayar Saad",
+      "email": "mayar.saad@example.com",
+      "password": "$2b$12$tkd1EtK0NVNhYMzEDFvG5eLxc8XF3EiceQXGKgcPPEYg5rrCrxlCC",
+      "reset_token": null,
+      "reset_token_expiry": null,
+      "created_at": "2026-04-26T08:28:13.790018+00:00"
+    },
+    {
+      "id": "fd89448f-ab82-49eb-8233-9a487e3595e2",
+      "full_name": "Sara Ahmed",
+      "email": "sara.ahmed@example.com",
+      "password": "$2b$12$9tUH1zQXShfwv2RHEWYP1.W798IfNh9/VNDs6I/gaZdBc1XkIGBri",
+      "reset_token": null,
+      "reset_token_expiry": null,
+      "created_at": "2026-04-26T08:31:04.633035+00:00"
+    }
+  ]
+}
