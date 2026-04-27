@@ -19,19 +19,19 @@ CORS(app)
 @app.route("/")
 @app.route("/home")
 def homePage():
-    return render_template("index.html")
+    return render_template("homePage/index.html")
 
 
 @app.route("/signin")
 def signinPage():
-    return render_template("signin.html", title="Signin")
+    return render_template("auth/signin.html", title="Signin")
 
 
 @app.route("/signup")
 def signupPage():
-    return render_template("signup.html", title="Signup")
+    return render_template("auth/signup.html", title="Signup")
 
 
 @app.route("/forgotPassword")
 def forgotPasswordPage():
-    return render_template("forgotPassword.html", title="Forgot password")
+    return render_template("auth/forgotPassword.html", title="Forgot password")
