@@ -1,30 +1,4 @@
 {% extends "layout.html" %} {% block content %}
 
 <!-- Hero section -->
-<header
-  class="relative h-[70vh] bg-[url('/static/images/hero_section.png')] bg-center bg-cover bg-no-repeat flex justify-center items-center"
->
-  <div class="h-full w-dvw bg-taupe-900 opacity-50 absolute z-0"></div>
-  <div class="relative flex flex-col gap-5">
-    <h1 class="font-bold text-white text-4xl">Track Your Shipment</h1>
-    <div class="relative">
-      <input
-        type="text"
-        id="floating_filled"
-        class="block px-2.5 pb-2.5 pt-5 text-[16px] text-heading bg-white border border-gray-400 hover:border-gray-900 rounded-md appearance-none focus:border-gray-900 focus:ring-0 focus:border-brand peer w-100 md:w-[35vw]"
-        placeholder=" "
-      />
-      <label
-        for="floating_filled"
-        class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-left inset-s-2.5 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto cursor-text"
-        >Enter Your Tracking Number</label
-      >
-      <button
-        class="absolute right-1 top-1 bottom-1 bg-(--blue) text-[20px] text-white rounded-md font-semibold hover:bg-(--primaryHover) cursor-pointer transition duration-300 px-4"
-      >
-        Track
-      </button>
-    </div>
-  </div>
-</header>
-{% endblock %}
+{% include 'header.html' %} {% endblock %}
