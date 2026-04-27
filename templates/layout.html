@@ -24,6 +24,7 @@
   </head>
   <body class="font-sans text-2xl">
     {% include 'navbar.html' %} {% block content %} {% endblock content %}
-    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="{{ url_for('static', filename='js/homePage.js') }}"></script>
   </body>
 </html>

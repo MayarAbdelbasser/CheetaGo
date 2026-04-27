@@ -5,3 +5,7 @@ const menu = document.getElementById("navbar-sticky");
 btn.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  lucide.createIcons();
+});
