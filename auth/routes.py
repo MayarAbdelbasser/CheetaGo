@@ -23,7 +23,7 @@ def signup():
         return jsonify({"error": "Password must contain at least 8 characters"}), 400
 
     if find_user_by_email(email):
-        return jsonify({"error": "Email already exists"})
+        return jsonify({"error": "Email already exists"}), 409
 
     # hash the password
     hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())

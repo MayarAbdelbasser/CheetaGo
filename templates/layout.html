@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,8 +23,11 @@
     {% endif %}
   </head>
   <body class="font-sans text-2xl">
-    {% include 'navbar.html' %} {% block content %} {% endblock content %}
+    {% include 'navbar.html' %} {% block content %} {% endblock content
+    %}{%include 'footer.html' %}
     <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="{{ url_for('static', filename='js/homePage.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>

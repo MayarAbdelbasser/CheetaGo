@@ -48,9 +48,15 @@ document.addEventListener("DOMContentLoaded", () => {
         email: formData.email,
         password: formData.password,
       });
-      console.log(data.message);
+      auth.setUser(data.user);
+      await alerts.signupSuccess();
+      window.location.href = "/";
     } catch (err) {
-      console.log(err);
+      if (err.message.toLowerCase().includes("exist")) {
+        alerts.emailExists();
+      } else {
+        alerts.serverError();
+      }
     }
   };
   // attach the function to each input
@@ -65,9 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = Object.fromEntries(new FormData(e.target));
     const isValid = validateForm(signupRules);
 
-    if (isValid) {
-      handleSignup(formData);
-    }
+    if (!isValid) return;
+    handleSignup(formData);
   });
 });
 

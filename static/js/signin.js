@@ -21,15 +21,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const handleSignin = async (formData) => {
     try {
-      const data = await apiRequest("/signin", "POST", {
+      const response = await apiRequest("/signin", "POST", {
         email: formData.email,
         password: formData.password,
       });
-      console.log(data.message);
+      await alerts.signinSuccess();
+      auth.setUser(response.user);
+      window.location.href = "/";
     } catch (err) {
-      console.log(err);
+      if (err.status == 401) {
+        alerts.wrongCredentials();
+      } else {
+        alerts.serverError();
+      }
+      alerts.serverError();
     }
   };
+
   // attach the function to each input
   signupRules.forEach(attachLiveValidation);
 
