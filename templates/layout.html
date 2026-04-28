@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='dist/output.css') }}"
+      href="{{ url_for('static', filename='css/output.css') }}"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -16,6 +16,11 @@
       type="image/x-icon"
       href="{{ url_for('static', filename='images/cheeta.png') }}"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
     {% if title %}
     <title>{{title}} | CheetaGo</title>
     {% else %}
@@ -30,5 +35,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {block script} {endblock script}
   </body>
 </html>

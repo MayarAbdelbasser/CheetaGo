@@ -1,7 +1,148 @@
 {% extends "layout.html" %} {% block content %}
-<section class="flex flex-col justify-center items-center mt-8">
+<section
+  class="flex flex-col justify-center items-center mt-8 pb-12 px-4 font-sans"
+>
   <h1 class="font-bold text-4xl text-(--text)">
     Ship Anywhere, <span>Instantly</span>
   </h1>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 border border-neutral-400 rounded-xl my-8"
+  >
+    <!-- map -->
+    <div class=""></div>
+    <!-- shipping details -->
+    <div class="border-l-[0.5px] border-neutral-400">
+      <!-- shipping header -->
+      <div class="border-b border-neutral-400 p-5">
+        <p class="text-[20px] font-semibold text-(--text)">New Shipment</p>
+        <p class="text-(--text) text-base">
+          Fill in addresses and package info to get a quote.
+        </p>
+      </div>
+      <!-- location details -->
+      <div class="p-5 border-b border-neutral-400">
+        <div class="flex gap-3 justify-center items-center">
+          <p
+            class="uppercase text-neutral-600 text-sm font-semibold tracking-widest"
+          >
+            locations
+          </p>
+          <span class="flex-1 bg-neutral-300 h-px"></span>
+        </div>
+        <span class="flex-1 bg-neutral-300 h-px"></span>
+
+        <!-- location inputs -->
+        <div
+          class="mt-2 p-4 space-y-3 border border-neutral-300 rounded-lg flex flex-col"
+        >
+          <!-- sender location -->
+          <div class="flex gap-2 items-center">
+            <span class="rounded-full bg-(--blue) h-2.5 w-2.5"></span>
+            <input
+              type="text"
+              name="sender_location"
+              id="sender_location"
+              class="p-3 pl-2 border border-neutral-300 rounded-md text-sm flex-1"
+              placeholder="Sender address or city..."
+            />
+            <i data-lucide="map-pin" class="text-(--blue) size-6"></i>
+          </div>
+
+          <!-- recipient location -->
+          <div class="flex gap-2 items-center">
+            <span class="rounded-full bg-(--primary) h-2.5 w-2.5"></span>
+            <input
+              type="text"
+              name="sender_location"
+              id="sender_location"
+              class="p-3 pl-2 border border-neutral-300 rounded-md text-sm flex-1"
+              placeholder="Recipient address or city..."
+            />
+            <i data-lucide="map-pin" class="text-(--primary) size-6"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- package details -->
+      <div class="p-5 border-b border-neutral-400">
+        <div class="flex gap-3 justify-center items-center">
+          <p
+            class="uppercase text-neutral-600 text-sm font-semibold tracking-widest"
+          >
+            Package details
+          </p>
+          <span class="flex-1 bg-neutral-300 h-px"></span>
+        </div>
+        <span class="flex-1 bg-neutral-300 h-px"></span>
+        <!-- package inputs -->
+        <div
+          class="mt-2 p-4 space-y-3 border border-neutral-300 rounded-lg flex flex-col"
+        >
+          <!-- package description -->
+          <div class="flex flex-col gap-1">
+            <label
+              for="package_description"
+              class="uppercase text-neutral-600 text-[10px] font-semibold tracking-widest"
+              >Contents description</label
+            >
+            <input
+              type="text"
+              name="package_description"
+              id="package_description"
+              class="p-3 pl-2 border border-neutral-300 rounded-md text-sm flex-1"
+              placeholder="e.g. Electronics, clothing, documents..."
+            />
+          </div>
+
+          <!-- package type -->
+          <div class="flex flex-col gap-1">
+            <label
+              for="package_type"
+              class="uppercase text-neutral-600 text-[10px] font-semibold tracking-widest"
+              >Package Type</label
+            >
+            <select
+              id="package_type"
+              name="package_type"
+              class="p-3 pl-2 border border-neutral-300 rounded-md text-sm flex-1 text-neutral-500 cursor-pointer"
+            >
+              <option value="" disabled selected hidden>Select type</option>
+
+              <option value="box">Box</option>
+              <option value="envelope">Envelope</option>
+              <option value="tube">Tube</option>
+              <option value="pallet">Pallet</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- estimate -->
+      <div class="p-5">
+        <div class="flex gap-3 justify-center items-center">
+          <p
+            class="uppercase text-neutral-600 text-sm font-semibold tracking-widest"
+          >
+            estimate
+          </p>
+          <span class="flex-1 bg-neutral-300 h-px"></span>
+        </div>
+        <span class="flex-1 bg-neutral-300 h-px"></span>
+        <!-- estimate values -->
+        <div
+          class="mt-2 p-4 space-y-3 border border-neutral-300 rounded-lg flex justify-between bg-gray-100"
+        >
+          <p class="text-(--text) text-base font-semibold m-0">
+            Total estimate
+          </p>
+          <p class="text-(--text) text-base font-semibold">EGP--,--</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-{% endblock %}
+{% endblock %} {block script}
+<script src="{{ url_for('static', filename='js/shipping.js') }}"></script>
+
+{endblock script}
