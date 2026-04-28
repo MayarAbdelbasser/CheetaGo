@@ -11,14 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const startButton = document.querySelector("#start_button");
   if (auth.isLoggedIn()) {
     startButton.textContent = "Logout";
+    startButton.dataset.action = "logout";
+  } else {
+    startButton.textContent = "Get started";
+    startButton.dataset.action = "signup";
   }
 
   startButton.addEventListener("click", () => {
+    const action = startButton.dataset.action;
     // navigate to signup page
-    if (startButton.textContent == "Get started") {
-      //   window.location.href = "/signup";
-      console.log("start");
-    } else if (startButton.textContent == "Logout") {
+    if (action == "signup") {
+      window.location.href = "/signup";
+    } else if (action == "logout") {
       auth.logout();
     }
   });

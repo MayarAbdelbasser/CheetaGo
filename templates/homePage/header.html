@@ -1,15 +1,15 @@
 <header
-  class="relative h-[70vh] bg-[url('/static/images/hero_section2.png')] bg-content bg-no-repeat flex justify-center items-center"
+  class="relative h-[70vh] w-screen bg-[url('/static/images/hero_section2.png')] bg-cover bg-no-repeat flex justify-center items-center"
   id="home"
 >
-  <div class="h-full w-full bg-taupe-900 opacity-50 absolute z-0"></div>
+  <div class="h-full w-screen bg-taupe-900 opacity-50 absolute z-0"></div>
   <div class="relative flex flex-col gap-5">
     <h1 class="font-bold text-white text-4xl">Track Your Shipment</h1>
     <div class="relative">
       <input
         type="text"
         id="floating_filled"
-        class="block px-2.5 pb-3.5 pt-5 text-[16px] text-heading bg-white border border-gray-400 hover:border-gray-900 rounded-md appearance-none focus:border-gray-900 focus:ring-0 focus:border-brand peer w-100 md:w-[35vw]"
+        class="block px-2.5 pb-3.5 pt-5 text-[16px] text-heading bg-white border border-gray-400 hover:border-gray-900 rounded-md appearance-none focus:border-gray-900 focus:ring-0 focus:border-brand peer w-85 sm:w-100 lg:w-[35vw]"
         placeholder=" "
       />
       <label
@@ -18,7 +18,7 @@
         >Enter Your Tracking Number</label
       >
       <button
-        class="absolute right-1 top-1 bottom-1 bg-(--blue) opacity-90 text-[20px] text-white rounded-md font-semibold hover:opacity-100 cursor-pointer transition duration-300 px-5"
+        class="absolute right-3 sm:right-1 top-1 bottom-1 bg-(--blue) opacity-90 text-[20px] text-white rounded-md font-semibold hover:opacity-100 cursor-pointer transition duration-300 px-5"
       >
         Track
       </button>

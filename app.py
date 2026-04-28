@@ -35,3 +35,8 @@ def signupPage():
 @app.route("/forgotPassword")
 def forgotPasswordPage():
     return render_template("auth/forgotPassword.html", title="Forgot password")
+
+
+@app.route("/shipping")
+def shippingPage():
+    return render_template("shipping/shippingPage.html", title="Shipping")
