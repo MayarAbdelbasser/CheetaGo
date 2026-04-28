@@ -16,10 +16,7 @@
       type="image/x-icon"
       href="{{ url_for('static', filename='images/cheeta.png') }}"
     />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     {% if title %}
     <title>{{title}} | CheetaGo</title>
@@ -35,6 +32,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {block script} {endblock script}
+    {% block scripts %} {% endblock scripts %}
   </body>
 </html>
