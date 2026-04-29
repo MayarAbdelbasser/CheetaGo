@@ -1,0 +1,35 @@
+<thead>
+  {% if shipments|length == 0 %} {% else %}
+  <tr class="border-b border-gray-200">
+    <th
+      class="text-left py-3 px-4 text-sm font-semibold text-gray-700 border-r border-gray-200"
+    >
+      Shipment ID
+    </th>
+    <th
+      class="text-left py-3 px-4 text-sm font-semibold text-gray-700 border-r border-gray-200"
+    >
+      Origin
+    </th>
+    <th
+      class="text-left py-3 px-4 text-sm font-semibold text-gray-700 border-r border-gray-200"
+    >
+      Destination
+    </th>
+
+    <th
+      class="text-left py-3 px-4 text-sm font-semibold text-gray-700 border-r border-gray-200"
+    >
+      Status
+    </th>
+    <th
+      class="text-left py-3 px-4 text-sm font-semibold text-gray-700 border-r border-gray-200"
+    >
+      Date
+    </th>
+    <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">
+      Action
+    </th>
+  </tr>
+  {% endif %}
+</thead>

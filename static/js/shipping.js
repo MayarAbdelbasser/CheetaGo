@@ -1,6 +1,12 @@
 if (!auth.isLoggedIn()) {
   window.location.href = "/signin";
 }
+if (auth.getUser().email == "admin@test.com") {
+  alerts.notAuthorized();
+  setTimeout(() => {
+    window.location.href = "/dashboard";
+  }, 2500);
+}
 let km = 0;
 // calculate shipping price
 const calculateShipping = (distance, type) => {

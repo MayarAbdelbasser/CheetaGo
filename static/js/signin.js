@@ -1,4 +1,7 @@
 lucide.createIcons();
+if (auth.getUser()) {
+  window.location.href = "/";
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   // toggle eye icons to show password
@@ -27,7 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       await alerts.signinSuccess();
       auth.setUser(response.user);
-      window.location.href = "/";
+      if (response.user.email == "admin@test.com") {
+        window.location.href = "/dashboard";
+      } else {
+        window.location.href = "/";
+      }
     } catch (err) {
       if (err.status == 401) {
         alerts.wrongCredentials();

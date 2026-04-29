@@ -1,3 +1,6 @@
+if (auth.getUser()) {
+  window.location.href = "/";
+}
 document.addEventListener("DOMContentLoaded", () => {
   // toggle eye icons to show password
   setupPasswordToggle("toggle-password", "password", "icon-eye");

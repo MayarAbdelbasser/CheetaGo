@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const getPriceBtn = document.getElementById("get_price");
   const confirmBtn = document.getElementById("confirm_shipment");
   const distanceSpan = document.getElementById("distance");
-
-  // get price
+  const userId = auth.getUser().id; // get price
   getPriceBtn.addEventListener("click", () => {
     if (!km || parseFloat(km) === 0) {
       alerts.missingLocations();
@@ -61,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       package_type: packageType,
       distance_km: parseFloat(km),
       total_price: parseFloat(price.toFixed(2)),
+      user_id: userId,
     };
 
     // Disable button while request is in flight

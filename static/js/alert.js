@@ -88,4 +88,35 @@ const alerts = {
       timerProgressBar: true,
     });
   },
+  notAuthorized: () => {
+    Swal.fire({
+      icon: "warning",
+      title: "Not authorized",
+      text: "You cannot make a shipment with admin accout.",
+      confirmButtonText: "Ok",
+      confirmButtonColor: "var(--blue)",
+    });
+  },
+  confirmToDelivered: () => {
+    return Swal.fire({
+      title: "Are you sure?",
+      text: "Change status to 'Shipped'",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, change it!",
+    });
+  },
+  confirmToShipped: () => {
+    return Swal.fire({
+      title: "Are you sure?",
+      text: "Change status to 'Delivered'",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, change it!",
+    });
+  },
 };

@@ -89,32 +89,32 @@ def confirm_shipment():
     )
 
 
-# @shipment_bp.route("/shipment/<shipment_id>/status", methods=["PATCH"])
-# def update_shipment_status(shipment_id):
-#     data = request.get_json(silent=True)
-#     if not data or "status" not in data:
-#         return jsonify({"error": "Missing 'status' field."}), 400
+@shipment_bp.route("/shipment/<shipment_id>/status", methods=["PATCH"])
+def update_shipment_status(shipment_id):
+    data = request.get_json(silent=True)
+    if not data or "status" not in data:
+        return jsonify({"error": "Missing 'status' field."}), 400
 
-#     shipments = _load_shipments()
+    shipments = load_shipments()
 
-#     for entry in shipments:
-#         if entry["shipment_id"] == shipment_id.upper():
-#             # Reconstruct object to use update_status method
-#             shipment = Shipment.__new__(Shipment)
-#             shipment.__dict__.update(entry)
+    for entry in shipments:
+        if entry["shipment_id"] == shipment_id.upper():
+            # Reconstruct object to use update_status method
+            shipment = Shipment.__new__(Shipment)
+            shipment.__dict__.update(entry)
 
-#             try:
-#                 shipment.update_status(data["status"])
-#             except ValueError as e:
-#                 return jsonify({"error": str(e)}), 422
+            try:
+                shipment.update_status(data["status"])
+            except ValueError as e:
+                return jsonify({"error": str(e)}), 422
 
-#             entry["status"] = shipment.status
-#             _save_shipments(shipments)
-#             return (
-#                 jsonify(
-#                     {"shipment_id": shipment.shipment_id, "status": shipment.status}
-#                 ),
-#                 200,
-#             )
+            entry["status"] = shipment.status
+            save_shipments(shipments)
+            return (
+                jsonify(
+                    {"shipment_id": shipment.shipment_id, "status": shipment.status}
+                ),
+                200,
+            )
 
-#     return jsonify({"error": f"Shipment '{shipment_id}' not found."}), 404
+    return jsonify({"error": f"Shipment '{shipment_id}' not found."}), 404

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for
 from auth.routes import auth_bp
-from shipment.shipment import shipment_bp
+from shipment.shipment import shipment_bp, load_shipments
+
 
 # to generate secret keys
 import secrets
@@ -41,3 +42,11 @@ def forgotPasswordPage():
 @app.route("/shipping")
 def shippingPage():
     return render_template("shipping/shippingPage.html", title="Shipping")
+
+
+@app.route("/dashboard")
+def dashboardPage():
+    shipments = load_shipments()
+    return render_template(
+        "dashboard/dashboard.html", title="Dashboard", shipments=shipments
+    )
