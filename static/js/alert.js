@@ -41,4 +41,51 @@ const alerts = {
       confirmButtonText: "Okay",
       confirmButtonColor: "var(--blue)",
     }),
+  missingLocations: () => {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing information",
+      text: "Please select both sender and recipient locations first.",
+      confirmButtonText: "Ok",
+      confirmButtonColor: "var(--blue)",
+    });
+  },
+  missingPackageType: () => {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing information",
+      text: "Please select a package type.",
+      confirmButtonText: "Ok",
+      confirmButtonColor: "var(--blue)",
+    });
+  },
+  missingPackageDescription: () => {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing information",
+      text: "Please enter a package description.",
+      confirmButtonText: "Ok",
+      confirmButtonColor: "var(--blue)",
+    });
+  },
+  notValidDistance: () => {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing information",
+      text: "Could not calculate distance. Please re-select your locations.",
+      confirmButtonText: "Ok",
+      confirmButtonColor: "var(--blue)",
+    });
+  },
+  shipmentConfirmSuccess: (id) => {
+    Swal.fire({
+      icon: "success",
+      title: "Shipment Confirmed!",
+      text: `Shipment id: ${id}`,
+      confirmButtonText: "Continue",
+      confirmButtonColor: "var(--primary)",
+      timer: 2500,
+      timerProgressBar: true,
+    });
+  },
 };

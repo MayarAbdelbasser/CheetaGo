@@ -1,0 +1,101 @@
+[
+  {
+    "shipment_id": "270AE93B",
+    "sender_location": "3, شارع 208, الفاروقية, القاهرة, 11728, مصر",
+    "recipient_location": "جامعة القاهرة, محور صفط اللبن, بين السرايات, نزلة بهجت, الجيزة, 12621, مصر",
+    "package_description": "clothing",
+    "package_type": "bag",
+    "distance_km": 10.1,
+    "total_price": 12.12,
+    "status": "pending",
+    "created_at": "2026-04-29T09:36:28+00:00"
+  },
+  {
+    "shipment_id": "C58A54A3",
+    "sender_location": "منيا القمح, الشرقية, 44692, مصر",
+    "recipient_location": "شارع رشدي, الزيتون البحريه, الزيتون, القاهرة, 11849, مصر",
+    "package_description": "clothing",
+    "package_type": "box",
+    "distance_km": 45.2,
+    "total_price": 113,
+    "status": "pending",
+    "created_at": "2026-04-29T09:40:01+00:00"
+  },
+  {
+    "shipment_id": "D5936AF8",
+    "sender_location": "شارع النصر, الشرق للتأمين, القاهرة, 11585, مصر",
+    "recipient_location": "جامعة القاهرة, محور الفريق كمال عامر, ابو قتاده و نوفل, بين السرايات, الجيزة, 12984, مصر",
+    "package_description": "docments",
+    "package_type": "envelope",
+    "distance_km": 11.7,
+    "total_price": 5.85,
+    "status": "pending",
+    "created_at": "2026-04-29T09:41:38+00:00"
+  },
+  {
+    "shipment_id": "A318368D",
+    "sender_location": "3, شارع 208, الفاروقية, القاهرة, 11728, مصر",
+    "recipient_location": "جامعة القاهرة, محور الفريق كمال عامر, ابو قتاده و نوفل, بين السرايات, الجيزة, 12984, مصر",
+    "package_description": "electronics",
+    "package_type": "box",
+    "distance_km": 10.2,
+    "total_price": 25.5,
+    "status": "pending",
+    "created_at": "2026-04-29T09:45:20+00:00"
+  },
+  {
+    "shipment_id": "AB5F60AA",
+    "sender_location": "3, شارع 208, الفاروقية, القاهرة, 11728, مصر",
+    "recipient_location": "جامعة طنطا, شارع نجف الجامعة, ام المؤمنين, الغربية, 31516, مصر",
+    "package_description": "docments",
+    "package_type": "box",
+    "distance_km": 97.6,
+    "total_price": 244,
+    "status": "pending",
+    "created_at": "2026-04-29T09:46:17+00:00"
+  },
+  {
+    "shipment_id": "16A162CF",
+    "sender_location": "شارع النصر, الشرق للتأمين, القاهرة, 11585, مصر",
+    "recipient_location": "جامعة القاهرة, محور صفط اللبن, بين السرايات, نزلة بهجت, الجيزة, 12621, مصر",
+    "package_description": "clothing",
+    "package_type": "bag",
+    "distance_km": 11.3,
+    "total_price": 13.56,
+    "status": "pending",
+    "created_at": "2026-04-29T10:07:16+00:00"
+  },
+  {
+    "shipment_id": "7925F4B1",
+    "sender_location": "قليوب, القليوبية, 13612, مصر",
+    "recipient_location": "شبرا الخيمة, القليوبية, 13771, مصر",
+    "package_description": "food",
+    "package_type": "box",
+    "distance_km": 6.6,
+    "total_price": 16.5,
+    "status": "pending",
+    "created_at": "2026-04-29T10:08:16+00:00"
+  },
+  {
+    "shipment_id": "7E9C9ADF",
+    "sender_location": "شارع السكة الحديد, حلوان, القاهرة, 11915, مصر",
+    "recipient_location": "شارع رشدي, عمارات 800, مدينة نصر, القاهرة, 15153, مصر",
+    "package_description": "mug",
+    "package_type": "box",
+    "distance_km": 28,
+    "total_price": 70,
+    "status": "pending",
+    "created_at": "2026-04-29T10:09:35+00:00"
+  },
+  {
+    "shipment_id": "1C5C04A2",
+    "sender_location": "شارع رشدي, المعصرة, حلوان, القاهرة, 11433, مصر",
+    "recipient_location": "شارع رشدي, عمارات 800, مدينة نصر, القاهرة, 15153, مصر",
+    "package_description": "chair",
+    "package_type": "bag",
+    "distance_km": 18.3,
+    "total_price": 21.96,
+    "status": "pending",
+    "created_at": "2026-04-29T10:10:17+00:00"
+  }
+]

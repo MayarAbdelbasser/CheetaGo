@@ -1,6 +1,18 @@
 if (!auth.isLoggedIn()) {
   window.location.href = "/signin";
 }
+let km = 0;
+// calculate shipping price
+const calculateShipping = (distance, type) => {
+  const rates = {
+    envelope: 0.5,
+    bag: 1.2,
+    box: 2.5,
+  };
+  const selectedRate = rates[type] || rates.box;
+  const totalCost = distance * selectedRate;
+  return totalCost;
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   const NOMINATIM = "https://nominatim.openstreetmap.org";
@@ -172,14 +184,12 @@ document.addEventListener("DOMContentLoaded", () => {
     map.fitBounds(L.latLngBounds(pts), { padding: [60, 60] });
 
     // Distance
-    const km = haversine(
+    km = haversine(
       state.sender.lat,
       state.sender.lon,
       state.recipient.lat,
       state.recipient.lon,
     ).toFixed(1);
-
-    // *estimate the shipping value
   }
 
   // Show a temporary loading/error state on the input //

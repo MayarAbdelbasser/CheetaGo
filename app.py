@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 from auth.routes import auth_bp
+from shipment.shipment import shipment_bp
 
 # to generate secret keys
 import secrets
@@ -12,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = secrets.token_urlsafe(32)
 
 app.register_blueprint(auth_bp)
-
+app.register_blueprint(shipment_bp)
 CORS(app)
 
 
