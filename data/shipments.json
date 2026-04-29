@@ -1,13 +1,14 @@
 [
   {
-    "shipment_id": "27933F4F",
-    "sender_location": "شارع النصر, حلوان, القاهرة, 11918, مصر",
-    "recipient_location": "4, شارع 251, الفاروقية, القاهرة, 11728, مصر",
-    "package_description": "clothing",
-    "package_type": "bag",
-    "distance_km": 11.7,
-    "total_price": 14.04,
+    "shipment_id": "6A2821AE",
+    "user_id": "ab3c3934-e0af-4c11-8013-d6f5ac51091b",
+    "sender_location": "شارع النصر, المعصرة, حلوان, القاهرة, 11433, مصر",
+    "recipient_location": "الزقازيق, الشرقية, 44512, مصر",
+    "package_description": "documents",
+    "package_type": "envelope",
+    "distance_km": 77.6,
+    "total_price": 38.8,
     "status": "pending",
-    "created_at": "2026-04-29T17:33:04+00:00"
+    "created_at": "2026-04-29T17:42:29+00:00"
   }
 ]

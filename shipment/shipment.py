@@ -13,6 +13,7 @@ VALID_STATUSES = ["pending", "shipped", "delivered", "cancelled"]
 class Shipment:
     def __init__(
         self,
+        user_id,
         sender_location,
         recipient_location,
         package_description,
@@ -21,6 +22,7 @@ class Shipment:
         total_price,
     ):
         self.shipment_id = str(uuid.uuid4())[:8].upper()
+        self.user_id = user_id
         self.sender_location = sender_location
         self.recipient_location = recipient_location
         self.package_description = package_description
@@ -64,6 +66,7 @@ def confirm_shipment():
         "package_type",
         "distance_km",
         "total_price",
+        "user_id",
     ]
     # check if there is a missing value
     missing = [f for f in required if not data.get(f)]
@@ -77,6 +80,7 @@ def confirm_shipment():
         package_type=data["package_type"],
         distance_km=data["distance_km"],
         total_price=data["total_price"],
+        user_id=data["user_id"],
     )
 
     shipments = load_shipments()

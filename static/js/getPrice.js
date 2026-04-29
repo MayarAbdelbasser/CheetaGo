@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const getPriceBtn = document.getElementById("get_price");
   const confirmBtn = document.getElementById("confirm_shipment");
   const distanceSpan = document.getElementById("distance");
-  const userId = auth.getUser().id; // get price
+  const userId = auth.getUser().id;
+
+  // get price
   getPriceBtn.addEventListener("click", () => {
     if (!km || parseFloat(km) === 0) {
       alerts.missingLocations();
