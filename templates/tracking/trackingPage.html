@@ -1,0 +1,109 @@
+{% extends "layout.html" %} {% block content %}
+<section
+  class="flex flex-col justify-center items-center mt-8 pb-12 px-4 font-sans max-w-6xl mx-auto"
+>
+  <div class="flex items-center flex-col gap-3">
+    <i data-lucide="map-pin" class="size-13 text-(--blue)"></i>
+
+    <h1 class="font-bold text-2xl text-(--text)">Track Your Shipment</h1>
+  </div>
+  <div class="relative mt-8">
+    <input
+      type="text"
+      id="tracking_input"
+      class="block px-2.5 pb-3.5 pt-5 text-[16px] text-heading bg-white border border-gray-400 hover:border-gray-900 rounded-md appearance-none focus:border-gray-900 focus:ring-0 focus:border-brand peer w-85 sm:w-100 lg:w-[35vw]"
+      placeholder=" "
+    />
+    <label
+      for="floating_filled"
+      class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-left inset-s-2.5 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto cursor-text"
+      >Enter Your Tracking Number</label
+    >
+    <button
+      id="tracking_btn"
+      class="absolute right-3 sm:right-1 top-1 bottom-1 bg-(--blue) opacity-90 text-[20px] text-white rounded-md font-semibold hover:opacity-100 cursor-pointer transition duration-300 px-5"
+    >
+      Track
+    </button>
+  </div>
+
+  <div class="flex gap-4 flex-col md:flex-row w-full items-start">
+    <!-- shipment details -->
+    <div class="flex-7 border border-neutral-300 rounded-lg mt-4">
+      <h3
+        class="bg-gray-100 border-b border-b-neutral-300 py-4 px-3 font-semibold text-xl text-(--text) rounded-t-lg"
+      >
+        Delivery Details
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 justify-between">
+        <div class="space-y-1 sm:border-r border-b border-neutral-300 p-4">
+          <p class="text-gray-600 text-base font-semibold">Shipping Cost</p>
+          <p class="text-base text-gray-400" data-field="shipping_cost">--</p>
+        </div>
+        <div class="space-y-1 p-4 border-b border-neutral-300">
+          <p class="text-gray-600 text-base font-semibold">Address from</p>
+          <p class="text-base text-gray-400" data-field="address_from">--</p>
+        </div>
+        <div
+          class="space-y-1 border-b sm:border-b-0 sm:border-r border-neutral-300 p-4"
+        >
+          <p class="text-gray-600 text-base font-semibold">Address to</p>
+          <p class="text-base text-gray-400" data-field="address_to">--</p>
+        </div>
+        <div class="space-y-1 p-4">
+          <p class="text-gray-600 text-base font-semibold">
+            Package Description
+          </p>
+          <p class="text-base text-gray-400" data-field="package_description">
+            --
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- shipment status -->
+    <div class="flex-3 border border-neutral-300 rounded-lg mt-4">
+      <h3
+        data-field="status_header"
+        class="bg-gray-100 border-b border-b-neutral-300 py-4 px-3 font-semibold text-xl text-green-600 rounded-t-lg"
+      ></h3>
+
+      <div class="flex gap-3 p-4">
+        <!-- status progress -->
+        <div class="flex flex-col justify-center items-center pt-2">
+          <span
+            data-dot="pending"
+            class="bg-gray-300 w-5 h-5 aspect-square flex justify-center items-center rounded-full"
+          >
+            <i data-lucide="check" class="text-white size-4"></i>
+          </span>
+          <span data-line="pending" class="flex-1 w-0.5 bg-gray-300"></span>
+          <span
+            data-dot="shipped"
+            class="bg-gray-300 w-5 h-5 aspect-square flex justify-center items-center rounded-full"
+          >
+            <i data-lucide="check" class="text-white size-4"></i>
+          </span>
+          <span data-line="shipped" class="flex-1 w-0.5 bg-gray-300"></span>
+          <span
+            data-dot="delivered"
+            class="bg-gray-300 w-5 h-5 aspect-square flex justify-center items-center rounded-full"
+          >
+            <i data-lucide="check" class="text-white size-4"></i>
+          </span>
+        </div>
+        <!-- status info -->
+        <div class="space-y-12 *:font-semibold *:text-base">
+          <p>Order Created</p>
+          <p>Out for delivery</p>
+          <p>Delivered</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/alert.js') }}"></script>
+<script src="{{ url_for('static', filename='js/api.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tracking.js') }}"></script>
+{% endblock scripts %}

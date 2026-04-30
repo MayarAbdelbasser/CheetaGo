@@ -99,24 +99,53 @@ const alerts = {
   },
   confirmToDelivered: () => {
     return Swal.fire({
-      title: "Are you sure?",
-      text: "Change status to 'Shipped'",
       icon: "warning",
+      title: "Mark as Delivered?",
+      text: "This means the shipment has reached the customer. This action may not be reversible.",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, change it!",
+      confirmButtonColor: "var(--blue)",
+      cancelButtonColor: "#c92c2f",
+      confirmButtonText: "Yes, mark as delivered",
+      cancelButtonText: "Cancel",
     });
   },
   confirmToShipped: () => {
     return Swal.fire({
-      title: "Are you sure?",
-      text: "Change status to 'Delivered'",
-      icon: "warning",
+      icon: "question",
+      title: "Mark as Shipped?",
+      text: "The shipment will be marked as shipped and will be on its way to the customer.",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, change it!",
+      confirmButtonColor: "var(--blue)",
+      cancelButtonColor: "#c92c2f",
+      confirmButtonText: "Yes, mark as shipped",
+      cancelButtonText: "Cancel",
     });
   },
+  // tracking alerts
+  trackingError: () => {
+    return Swal.fire({
+      icon: "error",
+      title: "Empty Field",
+      text: "Please enter a tracking number first.",
+      confirmButtonText: "OK",
+      confirmButtonColor: "var(--blue)",
+    });
+  },
+  notAccessedtrackingError: () => {
+    return Swal.fire({
+      icon: "error",
+      title: "Oops!",
+      text: "This shipment doesn't seem to belong to your account. Double-check the tracking number and try again.",
+      confirmButtonText: "Try Again",
+      confirmButtonColor: "var(--blue)",
+    });
+  },
+  notFoundShipment: () =>
+    Swal.fire({
+      icon: "info",
+      title: "No Shipment Found",
+      text: "This tracking number doesn’t match any shipment. Double-check it and try again.",
+      confirmButtonText: "OK",
+      confirmButtonColor: "var(--blue)",
+    }),
 };

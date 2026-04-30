@@ -50,3 +50,8 @@ def dashboardPage():
     return render_template(
         "dashboard/dashboard.html", title="Dashboard", shipments=shipments
     )
+
+
+@app.route("/tracking")
+def trackingPage():
+    return render_template("tracking/trackingPage.html", title="Tracking")

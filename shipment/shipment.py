@@ -7,7 +7,7 @@ from flask import Blueprint, jsonify, request
 shipment_bp = Blueprint("shipment", __name__)
 SHIPMENTS_FILE = "data/shipments.json"
 
-VALID_STATUSES = ["pending", "shipped", "delivered", "cancelled"]
+VALID_STATUSES = ["pending", "shipped", "delivered"]
 
 
 class Shipment:
@@ -120,5 +120,22 @@ def update_shipment_status(shipment_id):
                 ),
                 200,
             )
+
+    return jsonify({"error": f"Shipment '{shipment_id}' not found."}), 404
+
+
+@shipment_bp.route("/shipment/<shipment_id>", methods=["GET"])
+def get_shipment(shipment_id):
+    user_id = request.args.get("user_id")
+    if not user_id:
+        return jsonify({"error": "Missing 'user_id' query parameter."}), 400
+
+    shipments = load_shipments()
+
+    for entry in shipments:
+        if entry["shipment_id"] == shipment_id.upper():
+            if entry["user_id"] != user_id:
+                return jsonify({"error": "Access denied."}), 403
+            return jsonify(entry), 200
 
     return jsonify({"error": f"Shipment '{shipment_id}' not found."}), 404
