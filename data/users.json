@@ -125,6 +125,15 @@
       "reset_token": null,
       "reset_token_expiry": null,
       "created_at": "2026-04-29T12:19:47.071521+00:00"
+    },
+    {
+      "id": "88dabb82-ed83-4d2a-962c-20fd2ada00da",
+      "full_name": "mayar abdelbasser",
+      "email": "mayar.abdelbasser@test.com",
+      "password": "$2b$12$FJu27Mac3CwNiEK0VxB7meTc.le9ZMpqalsUQiEpJpvDh/HzKNyfe",
+      "reset_token": null,
+      "reset_token_expiry": null,
+      "created_at": "2026-04-30T08:12:44.722587+00:00"
     }
   ]
 }

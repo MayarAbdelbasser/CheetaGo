@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Place or move a marker, update state, redraw line //
   function placeMarker(role, lat, lon, label) {
+    8;
     const isS = role === "sender";
     state[role] = { lat, lon, label };
 
@@ -300,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
             2: "We couldn't determine your location.",
             3: "Location request timed out. Please try again.",
           };
-          alert(msgs[err.code] || "Unknown Error");
+          alerts.noAccessToLocation(msgs[err.code] || "Unknown Error");
         },
         { timeout: 10000, enableHighAccuracy: true },
       );

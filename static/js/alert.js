@@ -148,4 +148,12 @@ const alerts = {
       confirmButtonText: "OK",
       confirmButtonColor: "var(--blue)",
     }),
+  noAccessToLocation: (message) => {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: message,
+      confirmButtonText: "OK",
+    });
+  },
 };
