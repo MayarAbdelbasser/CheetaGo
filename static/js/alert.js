@@ -80,8 +80,8 @@ const alerts = {
   shipmentConfirmSuccess: (id) => {
     Swal.fire({
       icon: "success",
-      title: "Shipment Confirmed!",
-      text: `Shipment id: ${id}`,
+      title: "Cheeta on the way!",
+      text: `Shipment Confirmed, shipment id: ${id}`,
       confirmButtonText: "Continue",
       confirmButtonColor: "var(--primary)",
       timer: 2500,

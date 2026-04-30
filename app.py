@@ -2,7 +2,6 @@ from flask import Flask, render_template, url_for
 from auth.routes import auth_bp
 from shipment.shipment import shipment_bp, load_shipments
 
-
 # to generate secret keys
 import secrets
 
@@ -32,11 +31,6 @@ def signinPage():
 @app.route("/signup")
 def signupPage():
     return render_template("auth/signup.html", title="Signup")
-
-
-@app.route("/forgotPassword")
-def forgotPasswordPage():
-    return render_template("auth/forgotPassword.html", title="Forgot password")
 
 
 @app.route("/shipping")
