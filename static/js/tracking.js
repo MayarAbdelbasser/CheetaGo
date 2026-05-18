@@ -9,6 +9,11 @@ if (auth.getUser().email == "admin@test.com") {
   }, 2500);
 }
 
+// get tracking number
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const trackNumber = urlParams.get("num");
+
 document.addEventListener("DOMContentLoaded", () => {
   const trackingBtn = document.getElementById("tracking_btn");
   const trackingInput = document.getElementById("tracking_input");
@@ -82,6 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // get shipment status when navigating from home page
+  if (trackNumber.trim() == "") {
+    return;
+  } else {
+    trackingInput.value = trackNumber;
+    const value = trackNumber;
+    const userId = auth.getUser().id;
+
+    if (value === "") {
+      alerts.trackingError();
+      return;
+    }
+    getShipment(value, userId);
+  }
   trackingBtn.addEventListener("click", () => {
     const value = trackingInput.value.trim();
     const userId = auth.getUser().id;

@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     zoomControl: true,
     attributionControl: true,
   });
+
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -65,65 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let recipientMarker = null;
   let routeLine = null;
 
-  //  Geocode on Enter / Blur
-  async function handleAddressInput(role) {
-    const id = role === "sender" ? "sender_location" : "recipient_location";
-    const containerId = role === "sender" ? "sender_data" : "recipient_data";
-    const input = document.getElementById(id);
-    const query = input.value.trim();
-    if (!query) return;
-
-    setInputState(input, "loading");
-    try {
-      const result = await geocode(query, containerId);
-      placeMarker(role, result.lat, result.lon, result.label);
-      input.value = result.label; // fill full address back
-      setInputState(input, "ok");
-    } catch (e) {
-      setInputState(input, "error");
-      input.placeholder = e.message;
-    }
-  }
-
-  // Place or move a marker, update state, redraw line //
-  function placeMarker(role, lat, lon, label) {
-    8;
-    const isS = role === "sender";
-    state[role] = { lat, lon, label };
-
-    if (isS) {
-      if (senderMarker) map.removeLayer(senderMarker);
-      senderMarker = L.marker([lat, lon], { icon: senderIcon })
-        .addTo(map)
-        .bindPopup(`<b>Send from</b><br>${label}`);
-    } else {
-      if (recipientMarker) map.removeLayer(recipientMarker);
-      recipientMarker = L.marker([lat, lon], { icon: recipientIcon })
-        .addTo(map)
-        .bindPopup(`<b>Sent to</b><br>${label}`);
-    }
-
-    drawRoute();
-  }
-  // location coordinates
-  const state = {
-    sender: null, // { lat, lon, label }
-    recipient: null, // { lat, lon, label }
-  };
-  //  Haversine distance in km
-  function haversine(lat1, lon1, lat2, lon2) {
-    const R = 6371;
-    const dLat = ((lat2 - lat1) * Math.PI) / 180;
-    const dLon = ((lon2 - lon1) * Math.PI) / 180;
-    const a =
-      Math.sin(dLat / 2) ** 2 +
-      Math.cos((lat1 * Math.PI) / 180) *
-        Math.cos((lat2 * Math.PI) / 180) *
-        Math.sin(dLon / 2) ** 2;
-    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  }
-
-  //  Geocode a free-text address → first Nominatim result
+  //  Geocode a free-text address
   const geocode = async function (query, containerId) {
     const url = `${NOMINATIM}/search?q=${encodeURIComponent(query)}&format=json&limit=5&countrycodes=eg`;
     const res = await fetch(url, { headers: { "Accept-Language": "ar,en" } });
@@ -159,7 +102,64 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Reverse-geocode coordinates → display_name //
+  //  Geocode on Enter / Blur
+  async function handleAddressInput(role) {
+    const id = role === "sender" ? "sender_location" : "recipient_location";
+    const containerId = role === "sender" ? "sender_data" : "recipient_data";
+    const input = document.getElementById(id);
+    const query = input.value.trim();
+    if (!query) return;
+
+    setInputState(input, "loading");
+    try {
+      const result = await geocode(query, containerId);
+      placeMarker(role, result.lat, result.lon, result.label);
+      input.value = result.label; // fill full address back
+      setInputState(input, "ok");
+    } catch (e) {
+      setInputState(input, "error");
+      input.placeholder = e.message;
+    }
+  }
+
+  // Place or move a marker, update state, redraw line //
+  function placeMarker(role, lat, lon, label) {
+    const isS = role === "sender";
+    state[role] = { lat, lon, label };
+
+    if (isS) {
+      if (senderMarker) map.removeLayer(senderMarker);
+      senderMarker = L.marker([lat, lon], { icon: senderIcon })
+        .addTo(map)
+        .bindPopup(`<b>Send from</b><br>${label}`);
+    } else {
+      if (recipientMarker) map.removeLayer(recipientMarker);
+      recipientMarker = L.marker([lat, lon], { icon: recipientIcon })
+        .addTo(map)
+        .bindPopup(`<b>Sent to</b><br>${label}`);
+    }
+
+    drawRoute();
+  }
+  // location coordinates
+  const state = {
+    sender: null, // { lat, lon, label }
+    recipient: null, // { lat, lon, label }
+  };
+  //  Haversine distance in km
+  function haversine(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  // Reverse-geocode coordinates → display_name
   async function reverseGeocode(lat, lon) {
     const url = `${NOMINATIM}/reverse?lat=${lat}&lon=${lon}&format=json`;
     const res = await fetch(url, { headers: { "Accept-Language": "ar,en" } });
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return data.display_name || `${lat.toFixed(5)}, ${lon.toFixed(5)}`;
   }
 
-  // Draw dashed polyline between the two markers if both exist //
+  // Draw dashed polyline between the two markers if both exist
   function drawRoute() {
     if (routeLine) {
       map.removeLayer(routeLine);
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ).toFixed(1);
   }
 
-  // Show a temporary loading/error state on the input //
+  // Show a temporary loading/error state on the input
   function setInputState(input, state) {
     const base = "p-3 pl-2 border rounded-md text-sm flex-1 transition-colors";
     if (state === "loading") {
@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
             2: "We couldn't determine your location.",
             3: "Location request timed out. Please try again.",
           };
-          alerts.noAccessToLocation(msgs[err.code] || "Unknown Error");
+          alert(msgs[err.code] || "Unknown Error");
         },
         { timeout: 10000, enableHighAccuracy: true },
       );

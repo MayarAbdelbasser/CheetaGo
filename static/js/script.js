@@ -27,5 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // navigate to tracking page
+  if (window.location.href == "/") {
+    const trackBtn = document.querySelector("#track");
+    const trackInput = document.querySelector("#floating_filled");
+    trackBtn.addEventListener("click", () => {
+      const trackNumber = trackInput.value;
+      window.location.href = `/tracking?num=${trackNumber}`;
+    });
+  }
+
   lucide.createIcons();
 });

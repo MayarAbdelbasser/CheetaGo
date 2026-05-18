@@ -8,7 +8,7 @@
     "package_type": "envelope",
     "distance_km": 77.6,
     "total_price": 38.8,
-    "status": "pending",
+    "status": "delivered",
     "created_at": "2026-04-29T17:42:29+00:00"
   },
   {
@@ -20,7 +20,43 @@
     "package_type": "bag",
     "distance_km": 10.1,
     "total_price": 12.12,
-    "status": "pending",
+    "status": "delivered",
     "created_at": "2026-04-30T07:53:02+00:00"
+  },
+  {
+    "shipment_id": "A13D38FD",
+    "user_id": "6388d2bf-f3c3-4ece-b6b4-9a17a68ddcc2",
+    "sender_location": "المعادى, Cairo Maadi, القاهرة, 11728, مصر",
+    "recipient_location": "شارع الشروق, طنان, القليوبية, 13746, مصر",
+    "package_description": "clothing",
+    "package_type": "box",
+    "distance_km": 31.6,
+    "total_price": 79,
+    "status": "shipped",
+    "created_at": "2026-04-30T08:37:34+00:00"
+  },
+  {
+    "shipment_id": "24BA7B6F",
+    "user_id": "88dabb82-ed83-4d2a-962c-20fd2ada00da",
+    "sender_location": "6, شارع 208, الفاروقية, القاهرة, 11728, مصر",
+    "recipient_location": "جامعة القاهرة, زقاق البدري, بين السرايات, الجيزة, 12984, مصر",
+    "package_description": "izsjhdfz",
+    "package_type": "envelope",
+    "distance_km": 10.1,
+    "total_price": 5.05,
+    "status": "pending",
+    "created_at": "2026-05-05T08:11:38+00:00"
+  },
+  {
+    "shipment_id": "D3136F90",
+    "user_id": "88dabb82-ed83-4d2a-962c-20fd2ada00da",
+    "sender_location": "4, شارع 251, الفاروقية, القاهرة, 11728, مصر",
+    "recipient_location": "جامعة القاهرة, نفق عبور مشاة, بين السرايات, الجيزة, 12541, مصر",
+    "package_description": "clothing",
+    "package_type": "box",
+    "distance_km": 10.1,
+    "total_price": 25.25,
+    "status": "pending",
+    "created_at": "2026-05-18T10:50:45+00:00"
   }
 ]

@@ -134,6 +134,15 @@
       "reset_token": null,
       "reset_token_expiry": null,
       "created_at": "2026-04-30T08:12:44.722587+00:00"
+    },
+    {
+      "id": "6388d2bf-f3c3-4ece-b6b4-9a17a68ddcc2",
+      "full_name": "ahemd kabbahs",
+      "email": "ahmed.kabbash@remotecoders.org",
+      "password": "$2b$12$mzu806Rotx0dt.ZGKoBO7O2dl.UPbgEFf5kxZx5/S2zA4jyWTq6F.",
+      "reset_token": null,
+      "reset_token_expiry": null,
+      "created_at": "2026-04-30T08:33:59.504634+00:00"
     }
   ]
 }

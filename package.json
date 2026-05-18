@@ -1,7 +1,7 @@
 {
   "name": "cheetago",
   "version": "1.0.0",
-  "description": "",
+  "description": "A fast and modern shipping web application that allows users to create shipments, get price estimates, and track their packages in real time.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,13 @@
   },
   "dependencies": {
     "lucide": "^1.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MayarAbdelbasser/CheetaGo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MayarAbdelbasser/CheetaGo/issues"
+  },
+  "homepage": "https://github.com/MayarAbdelbasser/CheetaGo#readme"
 }
