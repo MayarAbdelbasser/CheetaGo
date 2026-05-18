@@ -143,6 +143,15 @@
       "reset_token": null,
       "reset_token_expiry": null,
       "created_at": "2026-04-30T08:33:59.504634+00:00"
+    },
+    {
+      "id": "88a56e7a-d8b8-4e9f-89aa-fe681e37fcc4",
+      "full_name": "mayar saad",
+      "email": "mayar.saad@test.com",
+      "password": "$2b$12$Jvwl0ydz7165JuZLFdHKOexwjn5rznhq.dhGxIfCr1vsGkpqJN67i",
+      "reset_token": null,
+      "reset_token_expiry": null,
+      "created_at": "2026-05-18T11:18:03.599177+00:00"
     }
   ]
 }

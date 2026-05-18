@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // navigate to tracking page
-  if (window.location.href == "/") {
+  if (window.location.pathname === "/") {
     const trackBtn = document.querySelector("#track");
     const trackInput = document.querySelector("#floating_filled");
     trackBtn.addEventListener("click", () => {
